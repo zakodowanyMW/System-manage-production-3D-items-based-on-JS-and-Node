@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,200&display=swap');
+
+:root {
+    --main-color: #991447;
+    --second-color: #3a9c8c;
+    --first-hover-color: #ffd001;
+    --second-hover-color: #fB3561;
+    --text-color-gray: #222222;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Popins', sans-serif;
+}
+
+body {
+    font-size: 16px;
+    /* basic fonty size */
+}
+
+.sidebar {
+    width: 345px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: var(--main-color);
+}
+
+.sidebar-brand {
+    height: 90px;
+    padding: 1rem 0rem 1rem 2rem;
+    color: #fff;
+}
+
+.sidebar-brand span {
+    display: inline-block;
+    padding-right: 1rem;
+}
+
+.sidebar-brand span.logo {
+    color: var(--first-hover-color);
+    font-weight: 800;
+}
+
+.sidebar-brand span.text-logo {
+    font-weight: 800;
+}
+
+.sidebar-menu li {
+    width: 100%;
+    margin-bottom: 1.7rem;
+    padding-left: 1rem;
+}
+
+.sidebar-menu a {
+    padding-left: 1rem;
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.sidebar-menu a span {
+    transition: .2s;
+}
+
+.sidebar-menu a span:hover {
+    color: var(--second-hover-color);
+    font-size: 1.2rem;
+}
+
+.sidebar-menu a.active {
+    background-color: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--main-color);
+    border-radius: 30px 0px 0px 30px;
+}
+
+.sidebar-menu a span:first-child {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+}
+
+.main-content {
+    margin-left: 345px;
+}
