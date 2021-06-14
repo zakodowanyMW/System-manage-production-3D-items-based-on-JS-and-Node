@@ -25,27 +25,27 @@
                 </li>
                 <li>
                     <a href=""><span class="las la-user"></span>
-                    <span>Customer</span></a>
+                    <span>CRM Klienci</span></a>
                 </li>
                 <li>
                     <a href=""><span class="las la-clipboard-list"></span>
-                    <span>Project</span></a>
+                    <span>Lista Zamówień</span></a>
                 </li>
                 <li>
                     <a href=""><span class="las la-shipping-fast"></span>
-                    <span>Orders</span></a>
+                    <span>Zrealizowane</span></a>
                 </li>
                 <li>
                     <a href=""><span class="las la-receipt"></span>
-                    <span>Inventory</span></a>
+                    <span>Nowe Zamówienie</span></a>
                 </li>
                 <li>
                     <a href=""><span class="las la-user-circle"></span>
-                    <span>Accounts</span></a>
+                    <span>Magazyn</span></a>
                 </li>
                 <li>
                     <a href=""><span class="las la-clipboard-list"></span>
-                    <span>Tasks</span></a>
+                    <span>Zmiany druku</span></a>
                 </li>
             </ul>
         </div>
@@ -59,20 +59,20 @@
     <div class="main-content">
         <!------- START HEADER --------->
         <header>
-            <h3>
+            <h2>
                 <label for="">
                     <span class="las la-bars"></span>
                 </label>
-                Dashboard
-            </h3>
+                Statystyki i przegląd realizacji
+            </h2>
 
             <div class="search-wrapper">
                 <span class="las la-search"></span>
-                <input type="search" placeholder="Search here">
+                <input type="search" placeholder="Wyszukaj...">
             </div>
 
             <div class="user-wrapper">
-                <img src="" alt="" width="30px" height="30px">
+                <span class="las la-cog"></span>
                 <div>
                     <h4>Marcin Winiarski</h4>
                     <small>Super admin</small>
@@ -81,13 +81,80 @@
         </header>
         <!----------HEADER END ----------->
 
-        <!--------- START MAIN CONTENT ----------->
+        <!--------- START CHOOSE CONTENT ----------->
         <main>
             <div class="chooseOptions">
                 <h1>Here will be options to choose</h1>
             </div>
+
+            <!------- START LOAD CONTENT FROM DATABASE -------->
+            <div class="recent-grid">
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Ostatnie projekty</h3>
+                            <button>Wszystkie<span class="las la-arrow-right"></span></button>
+                        </div>
+                        <div class="card-body">
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <td>Numer zlecenia</td>
+                                        <td>Nazwa detalu</td>
+                                        <td>Maszyna</td>
+                                        <td>Godzina zmiany</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Z126 / 6</td>
+                                        <td>Kostka Rubika</td>
+                                        <td>Markforged</td>
+                                        <td>
+                                            <span class="status "></span>
+                                            2021-06-26 14:15
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Z111 / 3</td>
+                                        <td>Osłona Piły</td>
+                                        <td>Ubot Tower S+</td>
+                                        <td>
+                                            <span class="status before"></span>
+                                            2021-06-26 14:15
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Z001 / 6</td>
+                                        <td>Głowiczka marszcząca</td>
+                                        <td>Markforged</td>
+                                        <td>
+                                            <span class="status after"></span>
+                                            2021-06-26 14:15
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="customers">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Nowe zlecenia</h3>
+                            <button>Wszystkie<span class="las la-arrow-right"></span></button>
+                        </div>
+                        <div class="card-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------- LOAD CONTENT FROM DATABASE END -------->
+
         </main>
-        <!--------- MAIN CONTENT END ----------->
+        <!--------- MAIN CHOOSE CONTENT ----------->
+
 
     </div>
     <!------------- MAIN CONTENT END-------------->

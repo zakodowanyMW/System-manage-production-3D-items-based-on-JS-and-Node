@@ -5,7 +5,7 @@
     --second-color: #ff2a74;
     --first-hover-color: #ffd001;
     --second-hover-color: #fB3561;
-    --text-color-gray: #222222;
+    --text-color-gray: #7a7a7a;
 }
 
 * {
@@ -29,11 +29,12 @@ body {
     top: 0;
     height: 100vh;
     background-color: var(--main-color);
+    z-index: 100;
 }
 
 .sidebar-brand {
     height: 90px;
-    padding: 1rem 0rem 1rem 2rem;
+    padding: 2rem 0rem 1rem 2rem;
     color: #fff;
 }
 
@@ -94,7 +95,25 @@ body {
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem;
+    padding-left: 1.5rem;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    left: 345px;
+    width: calc(100% - 345px);
+    top: 0;
+    z-index: 100;
+}
+
+header h2 {
+    color: #333;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+header label span {
+    padding-right: .5rem;
 }
 
 .search-wrapper {
@@ -108,7 +127,7 @@ header {
 
 .search-wrapper span {
     display: inline-block;
-    padding: 0rem;
+    padding-left: 1.1rem;
     font-size: 1.5rem;
 }
 
@@ -122,4 +141,108 @@ header {
 .user-wrapper {
     display: flex;
     align-items: center;
+    margin-right: 1.5rem;
 }
+
+.user-wrapper .la-cog {
+    font-size: 45px;
+    border-radius: 50%;
+    margin-right: .5rem;
+    color: var(--second-color)
+}
+
+.user-wrapper small {
+    display: inline-block;
+    color: var(--text-color-gray);
+    padding-top: .2rem;
+}
+
+main {
+    margin-top: 90px;
+    padding: 2rem 1.5rem;
+    background-color: #f0f0f0;
+    min-height: calc(100vh - 90px);
+}
+
+/* --- START TABLE FROM DATABASE ---*/
+.recent-grid {
+    margin-top: 3.5rem;
+    display: grid;
+    grid-gap: 2.5rem;
+    grid-template-columns: 65% auto;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.card-header .card-body {
+    padding: 1rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding: .6rem;
+}
+
+.card-header button {
+    background-color: var(--second-color);
+    border-radius: 10px;
+    color: #fff;
+    font-size: .8rem;
+    padding: .8rem 1.6rem;
+    border: #777 1px solid;
+}
+
+.card-header button span {
+    padding-left: .2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+td {
+    padding: .6rem;
+    font-size: .9rem;
+}
+
+thead td {
+    font-weight: 700;
+    padding: .8rem;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+span.status {
+    display: inline-block;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 196, 0);
+    margin-right: .8rem;
+}
+
+span.status.after {
+    background-color: red;
+}
+
+span.status.before {
+    background-color: rgb(20, 194, 20);
+}
+
+/* --- END TABLE FROM DATABASE ---*/
