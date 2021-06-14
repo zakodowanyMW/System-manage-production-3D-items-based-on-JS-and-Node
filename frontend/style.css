@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,200&display=swap');
 
 :root {
-    --main-color: #991447;
-    --second-color: #3a9c8c;
+    --main-color: #29282c;
+    --second-color: #ff2a74;
     --first-hover-color: #ffd001;
     --second-hover-color: #fB3561;
     --text-color-gray: #222222;
@@ -40,10 +40,11 @@ body {
 .sidebar-brand span {
     display: inline-block;
     padding-right: 1rem;
+    font-size: 1.8rem;
 }
 
 .sidebar-brand span.logo {
-    color: var(--first-hover-color);
+    color: var(--second-color);
     font-weight: 800;
 }
 
@@ -65,12 +66,12 @@ body {
 }
 
 .sidebar-menu a span {
-    transition: .2s;
+    transition: .1s;
 }
 
 .sidebar-menu a span:hover {
     color: var(--second-hover-color);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .sidebar-menu a.active {
@@ -88,4 +89,37 @@ body {
 
 .main-content {
     margin-left: 345px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.search-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.search-wrapper span {
+    display: inline-block;
+    padding: 0rem;
+    font-size: 1.5rem;
+}
+
+.search-wrapper input {
+    height: 100%;
+    padding: .5rem;
+    border: none;
+    outline: none;
+}
+
+.user-wrapper {
+    display: flex;
+    align-items: center;
 }
