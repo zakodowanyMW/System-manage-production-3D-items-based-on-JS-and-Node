@@ -84,56 +84,75 @@
         <!--------- START CHOOSE CONTENT ----------->
         <main>
             <div class="chooseOptions">
-                <h1>Szybki dostęp</h1>
-                <button class="getOrders">Zamówienia w realizacji</button>
+                <div class="optionsGroup">
+                    <h1>Szybki dostęp</h1>
+                </div>
+                <div class="optionsGroup">
+                    <h3 class="chooseColumnsToShow">Wybierz kolumny</h3>
+                    <div class="checkBoxOptions">
+                        <label for="purcheser">
+                            <input type="checkbox" name="" id="purcheser">
+                            Zamawiający
+                        </label>
+                        <label for="orderID">
+                            <input type="checkbox" name="" id="orderID">
+                            Numer zamówienia
+                        </label>
+                        <label for="itemName">
+                            <input type="checkbox" name="" id="itemName">
+                            Nazwa detalu
+                        </label>
+                        <label for="material">
+                            <input type="checkbox" name="" id="material">
+                            Materiał
+                        </label>
+                    </div>
+                </div>
+                <div class="optionsGroup">
+                    <h1>Tutaj też jakieś dane będą</h1>
+                </div>
+                <div class="optionsGroup">
+                    <h1>Dodaj nowe zamówienia</h1>
+                    <span href="" class="quickNewOrderIcon"><span class="las la-plus-circle"></span></span>
+                </div>
             </div>
 
+            <section class="addOrderForm">
+                <div class="sectionClose">
+                    <div class="close">
+                        X
+                    </div>
+                </div>
+                <div class="container">
+                    <label for="">Nazwa detalu<input type="text"></label>
+                    <label for="">Liczba sztuk<input type="text"></label>
+                    <label for="">Numer rysunku<input type="text"></label>
+                    <label for="">Link do pliku STL<input type="text"></label>
+                    <label for="">Materiał<input type="text"></label>
+                    <input type="submit" value="DODAJ ZAMÓWIENIE">
+                </div>
+            </section>
+            
             <!------- START LOAD CONTENT FROM DATABASE -------->
             <div class="recent-grid">
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Ostatnie projekty</h3>
-                            <button>Wszystkie<span class="las la-arrow-right"></span></button>
+                            <h3>Zamówienia w realizacji</h3>
+                            <button class="getOrders">Wszystkie<span class="las la-arrow-right"></span></button>
                         </div>
                         <div class="card-body">
                             <table >
                                 <thead>
                                     <tr>
-                                        <td>Numer zlecenia</td>
+                                        <td class="orderNumber">Numer zlecenia</td>
                                         <td>Nazwa detalu</td>
-                                        <td>Maszyna</td>
-                                        <td>Godzina zmiany</td>
+                                        <td>Zamawiający</td>
+                                        <td>Materiał</td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Z126 / 6</td>
-                                        <td class="demoName">Kostka Rubika</td>
-                                        <td>Markforged</td>
-                                        <td>
-                                            <span class="status "></span>
-                                            2021-06-26 14:15
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Z111 / 3</td>
-                                        <td>Osłona Piły</td>
-                                        <td>Ubot Tower S+</td>
-                                        <td>
-                                            <span class="status before"></span>
-                                            2021-06-26 14:15
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Z001 / 6</td>
-                                        <td>Głowiczka marszcząca</td>
-                                        <td>Markforged</td>
-                                        <td>
-                                            <span class="status after"></span>
-                                            2021-06-26 14:15
-                                        </td>
-                                    </tr>
+                                <tbody class="demoName">
+                                    
                                 </tbody>
                             </table>
                         </div>

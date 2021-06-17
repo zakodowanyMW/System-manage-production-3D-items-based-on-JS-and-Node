@@ -1,3 +1,4 @@
+const { response } = require('express');
 const Order = require('../../database/dbModels');
 
 module.exports = {
@@ -12,6 +13,14 @@ module.exports = {
 
         res.send("Server działa mimo to");
     },
+
+    showAllOrders(req, res) {
+        Order.find({}, function(err, response) {
+            res.json(response);
+        })
+        
+    },
+
     onas(req , res ) {
         res.send("Witaj ze strony o nas");
     }

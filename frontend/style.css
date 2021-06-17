@@ -22,17 +22,6 @@ body {
     /* basic fonty size */
 }
 
-.getOrders {
-    background-color: var(--second-color);
-    color: #fff;
-    padding: 1rem;
-    outline: none;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-top: 1rem;
-    border: none;
-}
-
 .sidebar {
     width: 345px;
     position: fixed;
@@ -175,9 +164,70 @@ main {
     min-height: calc(100vh - 90px);
 }
 
+/* --- Choose options ---- */
+.hiden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.chooseOptions {
+    display: flex;
+    width: 100%;
+    min-width: 240px;
+}
+
+.chooseOptions .optionsGroup {
+    flex-basis: 25%;
+    padding-left: .5rem;
+    background-color: #fff;
+    border: rgba(0, 0, 0, 0.15) 1px solid;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 1.6rem 1rem 1rem 1rem;
+}
+
+.chooseOptions .optionsGroup:last-child {
+    background: linear-gradient(63deg, rgba(247, 31, 78, 1) 0%, rgba(204, 19, 113, 1) 100%);
+    color: #fff;
+}
+
+.chooseColumnsToShow {
+    padding-bottom: .7rem;
+}
+
+.optionsGroup .checkBoxOptions label {
+    font-size: .9rem;
+}
+
+.optionsGroup .checkBoxOptions input {
+    margin: .2rem;
+}
+
+.quickNewOrderIcon {
+    display: block;
+    color: #fff;
+    font-size: 5rem;
+    right: 10px;
+    /* background-color: rgb(70, 38, 38); */
+    text-align: right;
+    padding-right: 25px;
+    padding-top: 10px;
+}
+
+.la-plus-circle:hover {
+    color: rgb(255, 224, 47);
+    cursor: pointer;
+}
+
+
+/* --- Choose options end---- */
+
 /* --- START TABLE FROM DATABASE ---*/
 .recent-grid {
-    margin-top: 3.5rem;
+    margin-top: 2.5rem;
     display: grid;
     grid-gap: 2.5rem;
     grid-template-columns: 65% auto;
@@ -257,3 +307,56 @@ span.status.before {
 }
 
 /* --- END TABLE FROM DATABASE ---*/
+
+/*--- START ADD NEW ORDER - STYLING FORM ---*/
+
+.addOrderForm {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    min-width: 340px;
+    max-width: 450px;
+    min-height: 200px;
+    background-color: var(--second-color);
+    display: none;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    color: #fff;
+}
+
+.orderFormShow {
+    display: flex;
+}
+
+.sectionClose {
+    position: relative;
+}
+
+.addOrderForm .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #333;
+    color: aliceblue;
+    text-align: center;
+    padding: .7rem;
+}
+
+.addOrderForm .close:hover {
+    cursor: pointer;
+}
+
+div.container {
+    padding: 2rem;
+}
+
+.addOrderForm input {
+    display: block;
+    width: 80%;
+    padding: .5rem;
+    margin: .5rem auto;
+    outline: none;
+}
+
+/*--- END ADD NEW ORDER - STYLING FORM ---*/
