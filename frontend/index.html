@@ -124,12 +124,13 @@
                     </div>
                 </div>
                 <div class="container">
-                    <label for="">Nazwa detalu<input type="text"></label>
-                    <label for="">Liczba sztuk<input type="text"></label>
-                    <label for="">Numer rysunku<input type="text"></label>
-                    <label for="">Link do pliku STL<input type="text"></label>
-                    <label for="">Materiał<input type="text"></label>
-                    <input type="submit" value="DODAJ ZAMÓWIENIE">
+                    <form method="POST" class ="formSave" >
+                        <label for="">Osoba zamawiająca<input type="text" class="purcheser" required></label>
+                        <label for="">Nazwa detalu<input type="text" class="detailName" required></label>
+                        <label for="">Numer zlecenia<input type="text" class="orderIDForm" required></label>
+                        <label for="">Materiał<input type="text" class="formMaterial" required></label>
+                        <input type="submit" value="DODAJ ZAMÓWIENIE" class="saveNewOrder">
+                    </form>
                 </div>
             </section>
             

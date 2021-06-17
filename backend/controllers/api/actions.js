@@ -3,15 +3,16 @@ const Order = require('../../database/dbModels');
 
 module.exports = {
     addNewOrder(req , res ) {
+        console.log(req.query);
         const newOrder = new Order({ 
-            purcheser: 'Marcin Winiarski',
-            itemName: "Podpora piły szybkiej 1",
-            idDraw: "Z124",
-            material: "PET-G black"
+            purcheser: req.query.purcheser,
+            itemName: req.query.detailName,
+            idDraw: req.query.orderID,
+            material: req.query.Material
         });
         newOrder.save().then(() => console.log('save new order'));
 
-        res.send("Server działa mimo to");
+        res.redirect("http://127.0.0.1:5500/frontend/index.html");
     },
 
     showAllOrders(req, res) {

@@ -1,4 +1,5 @@
 
+
 const getOrders = document.querySelector(".getOrders");
 
     getOrders.addEventListener("click" , function () {
@@ -31,7 +32,7 @@ const getOrders = document.querySelector(".getOrders");
         console.log(data1);
     }
 
-    //checkbox - show colum
+    //checkbox - show column
     const inputs = document.querySelectorAll(".checkBoxOptions input");
 
     inputs.forEach(input => {
@@ -63,5 +64,25 @@ const getOrders = document.querySelector(".getOrders");
     closeForm.addEventListener("click", () => {
         orderForm.classList.remove("orderFormShow");
     })
+
+    //save New Order in database
+    const formInputs = document.querySelectorAll(".formSave input");
+    const form = document.querySelector("form");
+    const purcheser = document.querySelector(".purcheser");
+    const detailName = document.querySelector(".detailName");
+    const orderIDForm = document.querySelector(".orderIDForm");
+    const formMaterial = document.querySelector(".formMaterial");
+
+    form.addEventListener("submit", (e) => {
+        // e.preventDefault();
+        const purcheserValue = purcheser.value; 
+        const detailNameValue = detailName.value;
+        const orderIDFormValue = orderIDForm.value;
+        const formMaterialValue = formMaterial.value;
+        const url = `//localhost:3001/newOrder/?purcheser=${purcheserValue}&detailName=${detailNameValue}&orderID=${orderIDFormValue}&Material=${formMaterialValue}`;
+        console.log(url)
+        form.setAttribute("action", url);
+    })
+    
 
         

@@ -2,7 +2,7 @@
 
 :root {
     --main-color: #29282c;
-    --second-color: #f71f4e;
+    --second-color: #ff3863;
     --first-hover-color: #ffd001;
     --second-hover-color: #fB3561;
     --text-color-gray: #7a7a7a;
@@ -104,6 +104,7 @@ header {
     width: calc(100% - 345px);
     top: 0;
     z-index: 100;
+    background-color: #fff;
 }
 
 header h2 {
@@ -222,15 +223,19 @@ main {
     cursor: pointer;
 }
 
-
 /* --- Choose options end---- */
+
 
 /* --- START TABLE FROM DATABASE ---*/
 .recent-grid {
     margin-top: 2.5rem;
     display: grid;
     grid-gap: 2.5rem;
-    grid-template-columns: 65% auto;
+    grid-template-columns: 70% auto;
+}
+
+.getOrders {
+    cursor: pointer;
 }
 
 .card {
@@ -256,7 +261,14 @@ main {
     color: #fff;
     font-size: .8rem;
     padding: .8rem 1.6rem;
-    border: #777 1px solid;
+    border: rgb(199, 8, 8) 1px solid;
+    transition: .2s;
+}
+
+.card-header button:hover {
+    background-color: var(--first-hover-color);
+    color: var(--main-color);
+    border: rgb(255, 145, 112) 1px solid;
 }
 
 .card-header button span {
@@ -314,15 +326,18 @@ span.status.before {
     position: fixed;
     left: 50%;
     top: 50%;
-    min-width: 340px;
-    max-width: 450px;
+    min-width: 400px;
+    max-width: 650px;
     min-height: 200px;
-    background-color: var(--second-color);
+    /* background-color: var(--second-color); */
+    background: linear-gradient(63deg, rgba(247, 31, 78, 1) 0%, rgb(214, 41, 99) 100%);
     display: none;
     flex-direction: column;
     transform: translate(-50%, -50%);
     z-index: 101;
     color: #fff;
+    box-shadow: rgb(190, 190, 190) 10px 10px 20px 5px;
+    border-radius: 5px;
 }
 
 .orderFormShow {
@@ -348,15 +363,24 @@ span.status.before {
 }
 
 div.container {
-    padding: 2rem;
+    padding: 3rem;
 }
 
 .addOrderForm input {
     display: block;
-    width: 80%;
-    padding: .5rem;
-    margin: .5rem auto;
+    width: 100%;
+    padding: .7rem;
+    margin: .5rem 0;
     outline: none;
+}
+
+.saveNewOrder {
+    background-color: var(--first-hover-color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    line-height: 28px;
 }
 
 /*--- END ADD NEW ORDER - STYLING FORM ---*/
