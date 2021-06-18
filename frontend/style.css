@@ -261,7 +261,7 @@ main {
     color: #fff;
     font-size: .8rem;
     padding: .8rem 1.6rem;
-    border: rgb(199, 8, 8) 1px solid;
+    border: rgb(211, 52, 52) 1px solid;
     transition: .2s;
 }
 
@@ -355,7 +355,7 @@ span.status.before {
     background-color: #333;
     color: aliceblue;
     text-align: center;
-    padding: .7rem;
+    padding: .7rem 1rem;
 }
 
 .addOrderForm .close:hover {
@@ -383,4 +383,82 @@ div.container {
     line-height: 28px;
 }
 
+input:disabled {
+    background-color: rgb(230, 230, 230);
+    border: 1px solid rgb(114, 114, 114);
+
+}
+
 /*--- END ADD NEW ORDER - STYLING FORM ---*/
+
+
+/*--- START UPDATE ORDER - STYLING FORM ---*/
+
+.edit_OrderForm {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    min-width: 400px;
+    max-width: 650px;
+    min-height: 200px;
+    /* background-color: var(--second-color); */
+    background: linear-gradient(63deg, rgba(247, 31, 78, 1) 0%, rgb(214, 41, 99) 100%);
+    display: none;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    color: #fff;
+    box-shadow: rgb(190, 190, 190) 10px 10px 20px 5px;
+    border-radius: 5px;
+}
+
+.edit_orderFormShow {
+    display: flex;
+}
+
+.edit_sectionClose {
+    position: relative;
+}
+
+.edit_OrderForm .edit_close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #333;
+    color: aliceblue;
+    text-align: center;
+    padding: .7rem 1rem;
+}
+
+.edit_OrderForm .edit_close:hover {
+    cursor: pointer;
+}
+
+.edit_idOrder {
+    padding-bottom: 1rem;
+    color: var(--first-hover-color);
+    font-weight: bold;
+}
+
+div.edit_container {
+    padding: 3rem;
+}
+
+.edit_OrderForm input {
+    display: block;
+    width: 100%;
+    padding: .7rem;
+    margin: .5rem 0;
+    outline: none;
+}
+
+.sendEdit_Order {
+    background-color: var(--first-hover-color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    line-height: 28px;
+}
+
+/*--- END UPDATE ORDER - STYLING FORM ---*/

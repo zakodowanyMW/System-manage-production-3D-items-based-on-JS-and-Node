@@ -63,7 +63,7 @@
                 <label for="">
                     <span class="las la-bars"></span>
                 </label>
-                Statystyki i przegląd realizacji
+                Przegląd realizacji
             </h2>
 
             <div class="search-wrapper">
@@ -82,7 +82,7 @@
         <!----------HEADER END ----------->
 
         <!--------- START CHOOSE CONTENT ----------->
-        <main>
+        <main class="main">
             <div class="chooseOptions">
                 <div class="optionsGroup">
                     <h1>Szybki dostęp</h1>
@@ -124,15 +124,35 @@
                     </div>
                 </div>
                 <div class="container">
-                    <form method="POST" class ="formSave" >
+                    <form class ="formSave" >
                         <label for="">Osoba zamawiająca<input type="text" class="purcheser" required></label>
                         <label for="">Nazwa detalu<input type="text" class="detailName" required></label>
-                        <label for="">Numer zlecenia<input type="text" class="orderIDForm" required></label>
+                        <label for="">Nadany numer zlecenia<input type="text" class="orderIDForm" required disabled="disabled" ></label>
                         <label for="">Materiał<input type="text" class="formMaterial" required></label>
                         <input type="submit" value="DODAJ ZAMÓWIENIE" class="saveNewOrder">
                     </form>
                 </div>
             </section>
+
+            <!-- Form edit Order-->
+            <section class="edit_OrderForm">
+                <div class="edit_sectionClose">
+                    <div class="edit_close">
+                        X
+                    </div>
+                </div>
+                <div class="edit_container">
+                    <div class="edit_idOrder"><span></span></div>
+                    <form class ="edit_formUpdate" >
+                        <label for="">Osoba zamawiająca<input type="text" class="purcheser" required></label>
+                        <label for="">Nazwa detalu<input type="text" class="detailName" required></label>
+                        <label for="">Materiał<input type="text" class="formMaterial" required></label>
+                        <input type="submit" value="Zmień zamówienie" class="sendEdit_Order">
+                    </form>
+                </div>
+            </section>
+            <!--- End form edit order-->
+            
             
             <!------- START LOAD CONTENT FROM DATABASE -------->
             <div class="recent-grid">
@@ -140,7 +160,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3>Zamówienia w realizacji</h3>
-                            <button class="getOrders">Wszystkie<span class="las la-arrow-right"></span></button>
+                            <button class="getOrders">Odśwież dane<span class="las la-arrow-right"></span></button>
                         </div>
                         <div class="card-body">
                             <table >

@@ -15,14 +15,35 @@ module.exports = {
         res.redirect("http://127.0.0.1:5500/frontend/index.html");
     },
 
+    //getAll
     showAllOrders(req, res) {
         Order.find({}, function(err, response) {
             res.json(response);
-        })
-        
+        })    
     },
 
-    onas(req , res ) {
-        res.send("Witaj ze strony o nas");
+    //get one order
+    getOneOrder(req, res) {
+        const param = req.params.id;
+        Order.findOne({idDraw: param}, function(err,respone) {
+            res.json(respone);
+        })
+    },
+
+    //update
+    updateOrder(req, res) {
+        const param = req.params.id;
+        console.log(req.body)
+        console.log(param)
+
+        Order.updateOne({idDraw: param }, {$set: {
+            purcheser: req.body.purcheser,
+            itemName:  req.body.detailName,
+            idDraw: req.body.orderID,
+            material: req.body.Material
+        }},function(err, response){
+            res.json(response);
+        })
     }
+
 }
