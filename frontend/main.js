@@ -71,7 +71,7 @@ const getOrders = document.querySelector(".getOrders");
 
     plusIcon.addEventListener("click", () => {
         orderForm.classList.add("orderFormShow");
-        couterOrders = document.querySelectorAll("tr").length;
+        couterOrders = document.querySelectorAll(".demoName tr").length+1;
         if(couterOrders < 10) {
            couterOrders = "00"+couterOrders;
         } else if(couterOrders <100) {
@@ -189,6 +189,66 @@ const getOrders = document.querySelector(".getOrders");
 
     // START DELET ORDER
 
+    //show contextmenu after right-click
+    const scope = document.querySelector(".demoName");
+    const contextMenu = document.querySelector(".context-menu");
+    const chooseDeleteFromContextMenu = document.querySelector(".context-menu .delete_Order");
+   
+    scope.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        const {clientX: mouseX, clientY: mouseY} = e;
+        contextMenu.style.top = (mouseY - 10)+"px";
+        contextMenu.style.left = (mouseX - 20)+"px";
+        contextMenu.classList.add("visible-context-menu");
+
+        //get ID order to delete
+        let getOrderID = "";
+        const allRows = [...document.querySelectorAll(".demoName tr")];
+        allRows.forEach( row => {
+            row.addEventListener("contextmenu", () => {
+                getOrderID = row.textContent.split("\n")[1].replace(/ +/g, "");
+                console.log(getOrderID)
+            })                 
+        })
+        console.log("poza skołpem" + getOrderID )
+
+        //click contextMenu 
+        chooseDeleteFromContextMenu.addEventListener("click", () => {
+            const confirmRemoveOrder = document.querySelector(".confirm-remove-order");
+
+            const removeYes = document.querySelector(".remove_yes");
+            const removeNo = document.querySelector(".remove_no");
+
+            confirmRemoveOrder.classList.add("show_remove");
+            contextMenu.classList.remove("visible-context-menu");
+
+            console.log("poza skołpem 2 " + getOrderID )
+            const addTextIdOrder = document.querySelector(".confirm-remove-order h3 span");
+            addTextIdOrder.innerHTML =  getOrderID;
+
+            //CLICK REMOVE ORDER YES
+            removeYes.addEventListener("click", () => {
+                //delete one order
+                fetch("http://localhost:3001/delete/"+getOrderID, {
+                    method: "DELETE",
+                });
+                location.reload();
+            })
+            // END CLICK REMOVE ORDER YES
+
+            removeNo.addEventListener("click", (e) => {
+                e.preventDefault();
+                confirmRemoveOrder.classList.remove("show_remove");
+            })
+        })
+    })
+
+    window.addEventListener("click", (e) => {
+        // console.log(e.target.offsetParent) - offsetParent zwraca pierwszego przodka klikniętego elementu
+        if(e.target.offsetParent != contextMenu){
+            contextMenu.classList.remove("visible-context-menu");
+        }
+    })
 
     // END DELETE ORDER
     

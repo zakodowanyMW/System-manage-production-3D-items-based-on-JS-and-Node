@@ -2,6 +2,8 @@ const { response } = require('express');
 const Order = require('../../database/dbModels');
 
 module.exports = {
+
+    //add order
     addNewOrder(req , res ) {
         console.log(req.query);
         const newOrder = new Order({ 
@@ -15,7 +17,7 @@ module.exports = {
         res.redirect("http://127.0.0.1:5500/frontend/index.html");
     },
 
-    //getAll
+    //getAll orders
     showAllOrders(req, res) {
         Order.find({}, function(err, response) {
             res.json(response);
@@ -30,7 +32,7 @@ module.exports = {
         })
     },
 
-    //update
+    //update order
     updateOrder(req, res) {
         const param = req.params.id;
         console.log(req.body)
@@ -41,9 +43,19 @@ module.exports = {
             itemName:  req.body.detailName,
             idDraw: req.body.orderID,
             material: req.body.Material
-        }},function(err, response){
+            }},function(err, response){
             res.json(response);
         })
+    },
+
+    //delete order
+    deleteOrder(req, res) {
+        const param = req.params.id;
+        console.log(param)
+        Order.deleteOne({idDraw: param}, function(err, respone){
+        console.log("Order was deleted")
+        res.send(response);
+        });    
     }
 
 }

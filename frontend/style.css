@@ -2,9 +2,8 @@
 
 :root {
     --main-color: #29282c;
-    --second-color: #ff3863;
-    --first-hover-color: #ffd001;
-    --second-hover-color: #fB3561;
+    --second-color: #ff2f5c;
+    --first-hover-color: #ffc933;
     --text-color-gray: #7a7a7a;
 }
 
@@ -57,13 +56,18 @@ body {
     width: 100%;
     margin-bottom: 1.7rem;
     padding-left: 1rem;
+    color: rgb(207, 207, 207);
+}
+
+.sidebar-menu li:hover {
+    color: var(--second-color);
 }
 
 .sidebar-menu a {
     padding-left: 1rem;
     display: block;
-    color: #fff;
-    font-size: 1.1rem;
+    color: inherit;
+    font-size: 1.2rem;
 }
 
 .sidebar-menu a span {
@@ -71,7 +75,7 @@ body {
 }
 
 .sidebar-menu a span:hover {
-    color: var(--second-hover-color);
+    color: var(--second-color);
     font-size: 1.1rem;
 }
 
@@ -260,8 +264,8 @@ main {
     border-radius: 10px;
     color: #fff;
     font-size: .8rem;
-    padding: .8rem 1.6rem;
-    border: rgb(211, 52, 52) 1px solid;
+    padding: .9rem 1.5rem;
+    border: rgb(230, 103, 103) 1px solid;
     transition: .2s;
 }
 
@@ -286,13 +290,13 @@ thead tr {
 }
 
 td {
-    padding: .6rem;
+    padding: .8rem;
     font-size: .9rem;
 }
 
 thead td {
     font-weight: 700;
-    padding: .8rem;
+    padding: .9rem;
     color: #333;
 }
 
@@ -386,6 +390,7 @@ div.container {
 input:disabled {
     background-color: rgb(230, 230, 230);
     border: 1px solid rgb(114, 114, 114);
+    color: #000;
 
 }
 
@@ -462,3 +467,88 @@ div.edit_container {
 }
 
 /*--- END UPDATE ORDER - STYLING FORM ---*/
+
+
+/* --- RIGHT-CLICK MOUSE MENU  ----*/
+.context-menu {
+    position: fixed;
+    padding: 1rem 1.5rem 2rem 1.5rem;
+    background-color: rgb(240, 46, 85);
+    color: #fff;
+    min-width: 240px;
+    max-width: 270px;
+    font-size: .9rem;
+    font-family: 'Popins', sans-serif;
+    font-weight: 500;
+    display: none;
+}
+
+.visible-context-menu {
+    display: block;
+}
+
+.context-menu .item {
+    border-bottom: rgb(168, 168, 168) 1px solid;
+}
+
+.context-menu .item .las {
+    padding-right: .7rem;
+    padding-bottom: .7rem;
+    padding-top: .8rem;
+    font-size: 1.3rem;
+}
+
+.context-menu .item:hover {
+    color: #ffe1a1;
+    cursor: pointer;
+}
+
+/* --- END RIGHT-CLICK MOUSE MENU  ----*/
+
+/*---- START Confirm remove the order ----*/
+.confirm-remove-order {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2.5rem 3.5rem 2.5rem 3.5rem;
+    background-color: rgb(240, 46, 85);
+    color: #fff;
+    min-width: 350px;
+    line-height: 1.6rem;
+    text-align: center;
+    max-width: 370px;
+    min-height: 150px;
+    font-size: 1.1rem;
+    font-family: 'Popins', sans-serif;
+    font-weight: 500;
+    box-shadow: 10px 10px 20px rgb(122, 122, 122);
+    display: none;
+}
+
+.confirm-remove-order span {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.confirm-remove-order .buttons_remove_order button {
+    padding: .6rem 2rem;
+    margin-top: 1.2rem;
+    margin-right: .1rem;
+    margin-left: .1rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: rgb(235, 235, 235);
+}
+
+.confirm-remove-order .buttons_remove_order button:hover {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.show_remove {
+    display: block;
+}
+
+/*---- END Confirm remove the order ----*/
