@@ -238,7 +238,8 @@ main {
     grid-template-columns: 70% auto;
 }
 
-.getOrders {
+.getOrders,
+.last-order {
     cursor: pointer;
 }
 
@@ -261,18 +262,18 @@ main {
 
 .card-header button {
     background-color: var(--second-color);
-    border-radius: 10px;
+    border-radius: 5px;
     color: #fff;
     font-size: .8rem;
     padding: .9rem 1.5rem;
-    border: rgb(230, 103, 103) 1px solid;
+    border: rgb(226, 76, 76) 1px solid;
     transition: .2s;
 }
 
 .card-header button:hover {
-    background-color: var(--first-hover-color);
-    color: var(--main-color);
-    border: rgb(255, 145, 112) 1px solid;
+    background-color: rgb(56, 56, 56);
+    color: #fff;
+    border: rgb(0, 0, 0) 1px solid;
 }
 
 .card-header button span {
@@ -376,22 +377,31 @@ div.container {
     padding: .7rem;
     margin: .5rem 0;
     outline: none;
+    border: 1px solid rgb(167, 0, 0);
+    color: var(--main-color);
 }
 
 .saveNewOrder {
-    background-color: var(--first-hover-color);
+    background-color: #dfd9d9;
+    color: var(--main-color);
     outline: none;
     border: none;
     cursor: pointer;
     display: block;
     line-height: 28px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: .2s;
+}
+
+.saveNewOrder:hover {
+    background-color: var(--first-hover-color);
 }
 
 input:disabled {
-    background-color: rgb(230, 230, 230);
-    border: 1px solid rgb(114, 114, 114);
-    color: #000;
-
+    background-color: rgb(212, 212, 212);
+    border: 1px solid rgb(167, 0, 0);
+    color: var(--main-color)
 }
 
 /*--- END ADD NEW ORDER - STYLING FORM ---*/
@@ -441,7 +451,6 @@ input:disabled {
 
 .edit_idOrder {
     padding-bottom: 1rem;
-    color: var(--first-hover-color);
     font-weight: bold;
 }
 
@@ -458,12 +467,22 @@ div.edit_container {
 }
 
 .sendEdit_Order {
-    background-color: var(--first-hover-color);
+    background-color: #dfd9d9;
+    color: var(--main-color);
     outline: none;
     border: none;
     cursor: pointer;
     display: block;
     line-height: 28px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: .2s;
+    border: 1px solid rgb(172, 0, 0);
+    /* color: white; */
+}
+
+.sendEdit_Order:hover {
+    background-color: var(--first-hover-color);
 }
 
 /*--- END UPDATE ORDER - STYLING FORM ---*/
@@ -507,7 +526,7 @@ div.edit_container {
 
 /*---- START Confirm remove the order ----*/
 .confirm-remove-order {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

@@ -9,9 +9,7 @@ const getOrders = document.querySelector(".getOrders");
 
     getOrders.addEventListener("click" , function () {
 
-        fetch("http://localhost:3001/showallorders")
-        .then(res => res.json())
-        .then(data => showInfo(data));
+       location.reload();
     });
 
     function showInfo(data) {
@@ -189,28 +187,27 @@ const getOrders = document.querySelector(".getOrders");
 
     // START DELET ORDER
 
-    //show contextmenu after right-click
-    const scope = document.querySelector(".demoName");
-    const contextMenu = document.querySelector(".context-menu");
-    const chooseDeleteFromContextMenu = document.querySelector(".context-menu .delete_Order");
-   
-    scope.addEventListener("contextmenu", (e) => {
+function removeOrder() {
+    const scope = document.querySelectorAll(".demoName tr");
+const contextMenu = document.querySelector(".context-menu");
+const chooseDeleteFromContextMenu = document.querySelector(".context-menu .delete_Order");
+const correctOrderID = [];
+console.log(scope)
+
+scope.forEach( row=> {
+    //get ID order to delete
+    let getOrderID = "";
+    getOrderID = row.textContent.split("\n")[1].replace(/ +/g, "");
+    console.log(getOrderID)
+
+    row.addEventListener("contextmenu", contextMenuFunction = (e) => {
         e.preventDefault();
+        console.log(getOrderID)
+
         const {clientX: mouseX, clientY: mouseY} = e;
         contextMenu.style.top = (mouseY - 10)+"px";
         contextMenu.style.left = (mouseX - 20)+"px";
         contextMenu.classList.add("visible-context-menu");
-
-        //get ID order to delete
-        let getOrderID = "";
-        const allRows = [...document.querySelectorAll(".demoName tr")];
-        allRows.forEach( row => {
-            row.addEventListener("contextmenu", () => {
-                getOrderID = row.textContent.split("\n")[1].replace(/ +/g, "");
-                console.log(getOrderID)
-            })                 
-        })
-        console.log("poza skołpem" + getOrderID )
 
         //click contextMenu 
         chooseDeleteFromContextMenu.addEventListener("click", () => {
@@ -222,34 +219,49 @@ const getOrders = document.querySelector(".getOrders");
             confirmRemoveOrder.classList.add("show_remove");
             contextMenu.classList.remove("visible-context-menu");
 
-            console.log("poza skołpem 2 " + getOrderID )
             const addTextIdOrder = document.querySelector(".confirm-remove-order h3 span");
             addTextIdOrder.innerHTML =  getOrderID;
+
+            //get correct ID if i was click more then one "Right-click mouse"
+            correctOrderID.push(getOrderID);
+            console.log(correctOrderID)
 
             //CLICK REMOVE ORDER YES
             removeYes.addEventListener("click", () => {
                 //delete one order
-                fetch("http://localhost:3001/delete/"+getOrderID, {
+                if(correctOrderID[correctOrderID.length-1] === getOrderID){
+                    fetch("http://localhost:3001/delete/"+getOrderID, {
                     method: "DELETE",
-                });
-                location.reload();
+                    });
+                    location.reload();
+                } else {
+                    console.log("order not removed")
+                }
+                
             })
             // END CLICK REMOVE ORDER YES
-
             removeNo.addEventListener("click", (e) => {
                 e.preventDefault();
                 confirmRemoveOrder.classList.remove("show_remove");
             })
         })
     })
+})
 
-    window.addEventListener("click", (e) => {
-        // console.log(e.target.offsetParent) - offsetParent zwraca pierwszego przodka klikniętego elementu
-        if(e.target.offsetParent != contextMenu){
-            contextMenu.classList.remove("visible-context-menu");
-        }
+window.addEventListener("click", (e) => {
+    // console.log(e.target.offsetParent) - offsetParent zwraca pierwszego przodka klikniętego elementu
+    if(e.target.offsetParent != contextMenu){
+        contextMenu.classList.remove("visible-context-menu");
+    }
+})
+    }
+
+
+    //show contextmenu after right-click
+    window.addEventListener("load",  ()=> {
+        removeOrder()
     })
-
+    
     // END DELETE ORDER
     
         
