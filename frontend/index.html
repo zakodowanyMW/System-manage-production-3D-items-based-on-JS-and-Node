@@ -12,6 +12,7 @@
 <body>
 
     <!----------- LEFT SIDEBAR -------------->
+    <input type="checkbox" id="hamburger_menu">
     <div class="sidebar">
         <div class="sidebar-brand">
             <h1><span class="lab la-accusoft logo"></span><span class="text-logo">3D Print</span></h1>
@@ -60,7 +61,7 @@
         <!------- START HEADER --------->
         <header>
             <h2>
-                <label for="">
+                <label for="hamburger_menu">
                     <span class="las la-bars"></span>
                 </label>
                 Przegląd realizacji
@@ -83,7 +84,7 @@
 
         <!--------- START MAIN CONTENT ----------->
         <main class="main">
-            <div class="chooseOptions">
+            <section class="chooseOptions">
                 <div class="optionsGroup">
                     <h1>Szybki dostęp</h1>
                 </div>
@@ -106,16 +107,26 @@
                             <input type="checkbox" name="" id="material">
                             Materiał
                         </label>
+                        <label for="work_time">
+                            <input type="checkbox" name="" id="work_time">
+                            Czas druku
+                        </label>
                     </div>
+                    <span class="icon_options_area las la-list-alt"></span>
                 </div>
                 <div class="optionsGroup">
-                    <h1>Tutaj też jakieś dane będą</h1>
+                    <h1>Liczba zamówień</h1>
+                    <div class="wrapp">
+                        <h3 class="counter">356</h3>
+                        <span class="counter_icon las la-file-invoice-dollar"></span>
+                    </div>
+                    <p class="orders_worth">Wartość zamówień <span>231 564zł</span></p>
                 </div>
                 <div class="optionsGroup">
                     <h1>Dodaj nowe zamówienia</h1>
                     <span href="" class="quickNewOrderIcon"><span class="las la-plus-circle"></span></span>
                 </div>
-            </div>
+            </section>
 
             <section class="addOrderForm">
                 <div class="sectionClose">
@@ -166,7 +177,7 @@
                             <table >
                                 <thead>
                                     <tr>
-                                        <td class="orderNumber">Numer zlecenia</td>
+                                        <td class="orderNumber">Nr zlecenia</td>
                                         <td>Nazwa detalu</td>
                                         <td>Zamawiający</td>
                                         <td>Materiał</td>
@@ -182,7 +193,7 @@
                 <div class="customers">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Nowe zlecenia</h3>
+                            <h3>Stan magazynu</h3>
                             <button class="last-order">Wszystkie<span class="las la-arrow-right"></span></button>
                         </div>
                         <div class="card-body">

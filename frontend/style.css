@@ -22,7 +22,7 @@ body {
 }
 
 .sidebar {
-    width: 345px;
+    width: 330px;
     position: fixed;
     left: 0;
     top: 0;
@@ -67,7 +67,7 @@ body {
     padding-left: 1rem;
     display: block;
     color: inherit;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .sidebar-menu a span {
@@ -93,7 +93,29 @@ body {
 }
 
 .main-content {
-    margin-left: 345px;
+    margin-left: 330px;
+}
+
+#hamburger_menu {
+    display: none;
+}
+
+#hamburger_menu:checked+.sidebar {
+    width: 85px;
+}
+
+#hamburger_menu:checked~.main-content {
+    margin-left: 85px;
+}
+
+#hamburger_menu:checked~.main-content header {
+    width: calc(100% - 85px);
+    left: 85px;
+}
+
+#hamburger_menu:checked+.sidebar .sidebar-brand h1 span.text-logo,
+#hamburger_menu:checked+.sidebar .sidebar-menu ul li a span:last-child {
+    display: none;
 }
 
 header {
@@ -101,10 +123,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
     position: fixed;
-    left: 345px;
+    left: 340px;
     width: calc(100% - 345px);
     top: 0;
     z-index: 100;
@@ -117,7 +139,8 @@ header h2 {
     letter-spacing: 1px;
 }
 
-header label span {
+header label span.las {
+    cursor: pointer;
     padding-right: .5rem;
 }
 
@@ -153,7 +176,41 @@ header label span {
     font-size: 45px;
     border-radius: 50%;
     margin-right: .5rem;
-    color: var(--second-color)
+    color: var(--main-color);
+    animation: settingsAnimations infinite;
+    animation-duration: 15s;
+    animation-direction: alternate;
+}
+
+@keyframes settingsAnimations {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(70deg);
+    }
+
+    40% {
+        transform: rotate(140deg);
+        color: red;
+    }
+
+    60% {
+        transform: rotate(210deg);
+    }
+
+    80% {
+        transform: rotate(300deg);
+    }
+
+    99% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .user-wrapper small {
@@ -186,12 +243,12 @@ main {
 
 .chooseOptions .optionsGroup {
     flex-basis: 25%;
-    padding-left: .5rem;
     background-color: #fff;
     border: rgba(0, 0, 0, 0.15) 1px solid;
     border-radius: 5px;
     margin: 10px;
-    padding: 1.6rem 1rem 1rem 1rem;
+    padding: 1.6rem 1rem 1rem 1.5rem;
+    position: relative;
 }
 
 .chooseOptions .optionsGroup:last-child {
@@ -203,8 +260,19 @@ main {
     padding-bottom: .7rem;
 }
 
+.la-list-alt {
+    position: absolute;
+    font-size: 4rem;
+    margin-left: auto;
+    right: 30px;
+    bottom: 15px;
+}
+
 .optionsGroup .checkBoxOptions label {
     font-size: .9rem;
+    color: #f30035;
+    display: block;
+    font-weight: 500;
 }
 
 .optionsGroup .checkBoxOptions input {
@@ -219,12 +287,31 @@ main {
     /* background-color: rgb(70, 38, 38); */
     text-align: right;
     padding-right: 25px;
-    padding-top: 10px;
+    padding-top: 1.4rem;
 }
 
 .la-plus-circle:hover {
     color: rgb(255, 224, 47);
     cursor: pointer;
+}
+
+.optionsGroup .wrapp {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 3.5rem;
+    padding: 1rem .3rem 1rem 0;
+}
+
+.optionsGroup .counter {
+    font-weight: 700;
+    color: var(--second-color);
+}
+
+.optionsGroup .orders_worth {
+    font-size: 0.9rem;
+    padding-bottom: .5rem;
+    color: var(--main-color);
 }
 
 /* --- Choose options end---- */
@@ -382,7 +469,7 @@ div.container {
 }
 
 .saveNewOrder {
-    background-color: #dfd9d9;
+    background-color: #f1f1f1;
     color: var(--main-color);
     outline: none;
     border: none;
@@ -399,7 +486,7 @@ div.container {
 }
 
 input:disabled {
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(236, 236, 236);
     border: 1px solid rgb(167, 0, 0);
     color: var(--main-color)
 }
@@ -467,7 +554,7 @@ div.edit_container {
 }
 
 .sendEdit_Order {
-    background-color: #dfd9d9;
+    background-color: #f1f1f1;
     color: var(--main-color);
     outline: none;
     border: none;
